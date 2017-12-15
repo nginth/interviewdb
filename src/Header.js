@@ -4,6 +4,11 @@ import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 import { Link } from "react-router-dom";
 
+const link = {
+  textDecoration: "none",
+  color: "inherit"
+};
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +22,14 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <AppBar title="interviewDB" onClick={this.handleToggle} />
+        <AppBar
+          title={
+            <Link to="/" style={link}>
+              interviewDB
+            </Link>
+          }
+          onLeftIconButtonClick={this.handleToggle}
+        />
         <Drawer
           open={this.state.open}
           onRequestChange={this.handleClose}
