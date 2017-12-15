@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -22,7 +23,12 @@ class Header extends Component {
           onRequestChange={this.handleClose}
           docked={false}
         >
-          <MenuItem onClick={this.handleClose}>Home</MenuItem>
+          <Link to="/">
+            <MenuItem onClick={this.handleClose}>Home</MenuItem>
+          </Link>
+          <Link to="/questions">
+            <MenuItem onClick={this.handleClose}>Questions</MenuItem>
+          </Link>
         </Drawer>
       </div>
     );
