@@ -5,9 +5,7 @@ import Question from "./Question.js";
 import Home from "./Home.js";
 
 const styles = {
-  root: {
-    flexGrow: 1,
-    marginTop: 30,
+  container: {
     padding: "2em"
   }
 };
@@ -15,7 +13,7 @@ const styles = {
 class Body extends Component {
   render() {
     return (
-      <div style={styles.root}>
+      <div style={styles.container}>
         <Route exact path="/" component={Home} />
         <Route exact path="/questions" component={QuestionsAll} />
         <Route exact path="/questions/:questionId" component={Question} />
