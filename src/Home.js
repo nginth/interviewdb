@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuestionsAll from "./QuestionsAll";
 import Grid from "material-ui/Grid";
+import CategoriesAll from "./CategoriesAll";
 
 class Home extends Component {
   render() {
@@ -13,6 +14,10 @@ class Home extends Component {
           <Grid xs={6}>
             <h3> Questions </h3>
             <QuestionsAll />
+          </Grid>
+          <Grid xs={6}>
+            <h3> Categories </h3>
+            <CategoriesAll />
           </Grid>
         </Grid>
       </div>

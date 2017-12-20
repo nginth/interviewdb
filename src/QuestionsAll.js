@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardHeader, CardText } from "material-ui/Card";
-
-const styles = {
-  card: {
-    padding: "0.5em",
-    margin: "1em"
-  }
-};
+import QuestionCard from "./QuestionCard.js";
 
 const API_URL = "http://localhost:5000";
 
@@ -28,13 +21,7 @@ class QuestionsAll extends Component {
       <div>
         {this.state.questions &&
           this.state.questions.map(question => (
-            <Card style={styles.card} key={question.id}>
-              <CardHeader
-                title={question.name}
-                subtitle={question.categories.join(", ")}
-              />
-              <CardText> {question.content} </CardText>
-            </Card>
+            <QuestionCard question={question} key={question.id} />
           ))}
       </div>
     );

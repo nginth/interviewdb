@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import QuestionsAll from "./QuestionsAll.js";
+import Question from "./Question.js";
 import Home from "./Home.js";
-import Grid from "material-ui/Grid";
 
 const styles = {
   root: {
@@ -18,6 +18,7 @@ class Body extends Component {
       <div style={styles.root}>
         <Route exact path="/" component={Home} />
         <Route exact path="/questions" component={QuestionsAll} />
+        <Route exact path="/questions/:questionId" component={Question} />
       </div>
     );
   }
