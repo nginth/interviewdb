@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuestionCard from "./QuestionCard.js";
+import FourOhFour from "./FourOhFour";
 
 const API_URL = "http://localhost:5000";
 
@@ -8,25 +9,30 @@ class Question extends Component {
     super(props);
     this.state = {
       question: null,
-      not_found: true
+      notFound: true
     };
   }
+
   componentDidMount() {
     fetch(API_URL + "/question/" + this.props.match.params.questionId)
       .then(response => response.json())
-      .then(question => this.setState({ question: question, not_found: false }))
-      .catch(err => console.log(err));
+      .then(question => this.setState({ question: question, notFound: false }))
+      .catch(err => {
+        console.log(err);
+        this.setState({ question: null });
+      });
   }
+
   render() {
-    if (this.state.not_found) {
-      return <div> Question not found. </div>;
-    } else {
-      return (
-        <div>
-          <QuestionCard question={this.state.question} />
-        </div>
-      );
+    const question = this.state.question;
+    if (!question || question.message) {
+      return <FourOhFour message="Question not found." />;
     }
+    return (
+      <div>
+        <QuestionCard question={this.state.question} />
+      </div>
+    );
   }
 }
 
